@@ -1,29 +1,30 @@
 (function (Scratch) {
     'use strict';
 
+    // 🔴 BU KONTROL ŞART
     if (!Scratch.extensions.unsandboxed) {
-        throw new Error('This extension must be run unsandboxed');
+        throw new Error('This extension must be loaded unsandboxed');
     }
 
-    class MerhabaExtension {
+    class TestExtension {
         getInfo() {
             return {
-                id: 'merhaba',
-                name: 'Merhaba',
+                id: 'testext',
+                name: 'Test',
                 blocks: [
                     {
-                        opcode: 'merhabaYaz',
+                        opcode: 'testBlock',
                         blockType: Scratch.BlockType.COMMAND,
-                        text: 'merhaba yaz'
+                        text: 'test blok'
                     }
                 ]
             };
         }
 
-        merhabaYaz() {
-            console.log('Merhaba Dünya!');
+        testBlock() {
+            console.log('ÇALIŞIYOR');
         }
     }
 
-    Scratch.extensions.register(new MerhabaExtension());
+    Scratch.extensions.register(new TestExtension());
 })(Scratch);
